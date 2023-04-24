@@ -26,3 +26,26 @@ texture = ExtResource("1_ff7vv")
 
 [node name="PlayerDataObject" type="Node" parent="."]
 script = ExtResource("2_flwpm")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 923.0
+offset_top = 360.0
+offset_right = 1141.0
+offset_bottom = 643.0
+
+[node name="Storyteller" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DisplaySheet" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Display Character Sheet"
+
+[connection signal="pressed" from="DisplaySheet" to="." method="_on_display_sheet_pressed"]
