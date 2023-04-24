@@ -1,16 +1,20 @@
 extends Node
 
 
-@export var skills = {
-	"path"
+@export var skills : Dictionary = {
+	"Pathfinding" : 0,
+	"Fishing" : 0,
+	"Foraging" : 0,
+	"Hunting" : 0,
+	"Farming" : 0,
+	"Animal husbandry" : 0,
+	"Food preservation" : 0,
+	"Woodworking" : 0,
+	"Leatherworking" : 0,
+	"Toolmaking" : 0,
+	"Social insight" : 0
 } 
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+@export var health : int = 10
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
