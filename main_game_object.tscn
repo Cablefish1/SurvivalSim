@@ -41,11 +41,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scroll_following = true
 
 [node name="DisplaySheet" type="Button" parent="."]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 411.0
+offset_top = 45.0
+offset_right = 604.0
+offset_bottom = 76.0
 text = "Display Character Sheet"
 
+[node name="DisplayInventory" type="Button" parent="."]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 81.0
+offset_right = 603.0
+offset_bottom = 112.0
+text = "Display Inventory"
+
 [connection signal="pressed" from="DisplaySheet" to="." method="_on_display_sheet_pressed"]
+[connection signal="pressed" from="DisplayInventory" to="." method="_on_display_inventory_pressed"]

@@ -23,10 +23,22 @@ func display_text(text):
 func display_skills():
 	for skill in player.skills:
 		var value = player.skills[skill]
-		storyteller.add_text(str(skill))
+		storyteller.add_text(str(skill)+str(" "))
 		storyteller.add_text(str(value))
 		storyteller.newline()
 		
 
+func display_inventory():
+	for item in player.inventory:
+		var value = player.inventory[item]
+		storyteller.add_text(str(item)+str(" "))
+		storyteller.add_text(str(value))
+		storyteller.newline()
+
 func _on_display_sheet_pressed():
 	display_skills()
+
+
+func _on_display_inventory_pressed():
+	display_inventory()
+	

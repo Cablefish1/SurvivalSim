@@ -15,6 +15,13 @@ extends Node
 	"Social insight" : 0
 } 
 
+@export var inventory : Dictionary = {
+	"Unpreserved food" : 0,
+	"Preserved food" : 0,
+	"Firewood" : 0,
+
+} 
+
 @export var health : int = 10
 
 
