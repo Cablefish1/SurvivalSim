@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cc2dnfvxi4vg8"]
+[gd_scene load_steps=5 format=3 uid="uid://cc2dnfvxi4vg8"]
 
 [ext_resource type="Texture2D" uid="uid://beoyic83eye0v" path="res://Images/farm map.jpg" id="1_ff7vv"]
 [ext_resource type="Script" path="res://main_game_object.gd" id="1_vlqa0"]
 [ext_resource type="Script" path="res://PlayerData.gd" id="2_flwpm"]
+[ext_resource type="Script" path="res://close_wilderness.gd" id="4_dkom5"]
 
 [node name="MainGameObject" type="Control"]
 layout_mode = 3
@@ -27,14 +28,14 @@ texture = ExtResource("1_ff7vv")
 [node name="PlayerDataObject" type="Node" parent="."]
 script = ExtResource("2_flwpm")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="StorytellerPanel" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 923.0
 offset_top = 360.0
 offset_right = 1141.0
 offset_bottom = 643.0
 
-[node name="Storyteller" type="RichTextLabel" parent="Panel"]
+[node name="Storyteller" type="RichTextLabel" parent="StorytellerPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,19 +46,67 @@ scroll_following = true
 
 [node name="DisplaySheet" type="Button" parent="."]
 layout_mode = 0
-offset_left = 411.0
-offset_top = 45.0
-offset_right = 604.0
-offset_bottom = 76.0
+offset_left = 471.0
+offset_top = 48.0
+offset_right = 664.0
+offset_bottom = 79.0
 text = "Display Character Sheet"
 
 [node name="DisplayInventory" type="Button" parent="."]
-layout_mode = 0
-offset_left = 410.0
-offset_top = 81.0
-offset_right = 603.0
-offset_bottom = 112.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.5
+offset_right = 96.5
+offset_bottom = 31.0
+grow_horizontal = 2
 text = "Display Inventory"
+
+[node name="SectorMapPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.0
+offset_top = -213.0
+offset_right = 221.0
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="SectorMapPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+
+[node name="CloseWildernessButton" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "close
+wildernesss"
+script = ExtResource("4_dkom5")
+
+[node name="CloseWildernessPopupMenu" type="PopupMenu" parent="SectorMapPanel/GridContainer/CloseWildernessButton"]
+handle_input_locally = false
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (2 hours)"
+item_0/id = 0
+
+[node name="HomeCabin" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "abandoned
+cabin"
 
 [connection signal="pressed" from="DisplaySheet" to="." method="_on_display_sheet_pressed"]
 [connection signal="pressed" from="DisplayInventory" to="." method="_on_display_inventory_pressed"]
+[connection signal="pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton" to="SectorMapPanel/GridContainer/CloseWildernessButton" method="_on_pressed"]
+[connection signal="id_pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton/CloseWildernessPopupMenu" to="SectorMapPanel/GridContainer/CloseWildernessButton" method="_on_close_wilderness_popup_menu_id_pressed"]

@@ -1,6 +1,6 @@
 extends Control
 
-@onready var storyteller = $Panel/Storyteller
+@onready var storyteller = $StorytellerPanel/Storyteller
 @onready var player = $PlayerDataObject
 
 
@@ -23,8 +23,8 @@ func display_text(text):
 func display_skills():
 	for skill in player.skills:
 		var value = player.skills[skill]
-		storyteller.add_text(str(skill)+str(" "))
-		storyteller.add_text(str(value))
+		storyteller.add_text(str(value)+str(" "))
+		storyteller.add_text(str(skill))
 		storyteller.newline()
 		
 
