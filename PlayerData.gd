@@ -3,6 +3,15 @@ extends Node
 @onready var dicebag = Dicebag.new()
 
 @onready var storyteller = $"../StorytellerPanel/Storyteller"
+@onready var MainGameObject = $".."
+
+
+@export var health : int = 10
+
+
+@export var penalty : int = 0
+
+
 
 
 @export var skills : Dictionary = {
@@ -13,7 +22,7 @@ extends Node
 	"Farming" : 0,
 	"Animal husbandry" : 0,
 	"Food preservation" : 0,
-	"Woodworking" : 0,
+	"Woodcraft" : 0,
 	"Leatherworking" : 0,
 	"Toolmaking" : 0,
 	"Social insight" : 0
@@ -26,22 +35,31 @@ extends Node
 
 } 
 
-@export var unexplored_close_tiles : Dictionary = {
-	1 : "fish",
-	2 : "fish",
-	3 : "game",
-	4 : "game",
-	5 : "berries",
-	6 : "berries",
-	7 : "nothing",
-	8 : "nothing"
-}
+@export var unexplored_close_tiles = [
+	"fish", 
+	"fish", 
+	"game", 
+	"game", 
+	"berries", 
+	"berries", 
+	"nothing", 
+	"nothing"
+]
 
 
-@export var health : int = 10
 
-@export var hour : int = 0
-@export var day : int = 0
+func modify_health(amount):
+	health = health - amount
+	if (health <=0):
+		MainGameObject.game_over()
+	MainGameObject.update_health_bar()
+	
+
+
+func add_penalty():
+	var health_penalty = health - 10
+	penalty = health_penalty #modify if anything else needs to add penalties.
+	
 
 
 
@@ -50,7 +68,7 @@ func skill_roll(skill_name, target_dc):
 	if(skills.has(skill_name)):
 		storyteller.add_text("you attempt "+str(skill_name))
 		storyteller.newline()
-		var attempt = dicebag.roll_dice(1, 20)
+		var attempt = dicebag.roll_dice(1, 20, penalty)
 		attempt = attempt + skills[skill_name]
 		storyteller.add_text("Your rank in "+str(skill_name)+" is "+str(skills[skill_name]))
 		storyteller.newline()

@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cc2dnfvxi4vg8"]
+[gd_scene load_steps=8 format=3 uid="uid://cc2dnfvxi4vg8"]
 
 [ext_resource type="Texture2D" uid="uid://beoyic83eye0v" path="res://Images/farm map.jpg" id="1_ff7vv"]
 [ext_resource type="Script" path="res://main_game_object.gd" id="1_vlqa0"]
 [ext_resource type="Script" path="res://PlayerData.gd" id="2_flwpm"]
 [ext_resource type="Script" path="res://close_wilderness.gd" id="4_dkom5"]
+[ext_resource type="Script" path="res://HomeCabin.gd" id="5_nnpi7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbogw"]
+bg_color = Color(0.921569, 0.0941176, 0.00392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8tgmy"]
+bg_color = Color(0.152941, 0.866667, 0.152941, 1)
 
 [node name="MainGameObject" type="Control"]
 layout_mode = 3
@@ -30,8 +37,8 @@ script = ExtResource("2_flwpm")
 
 [node name="StorytellerPanel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 923.0
-offset_top = 360.0
+offset_left = 843.0
+offset_top = 304.0
 offset_right = 1141.0
 offset_bottom = 643.0
 
@@ -70,10 +77,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -287.0
-offset_top = -213.0
-offset_right = 221.0
-offset_bottom = 205.0
+offset_left = -264.0
+offset_top = -144.0
+offset_right = 246.0
+offset_bottom = 166.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -88,25 +95,362 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 5
 
-[node name="CloseWildernessButton" type="Button" parent="SectorMapPanel/GridContainer"]
+[node name="FarWildernessButton" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "far
+wilderness"
+
+[node name="FarWildernessPopup" type="PopupMenu" parent="SectorMapPanel/GridContainer/FarWildernessButton"]
+handle_input_locally = false
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[node name="FarWildernessButton2" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "far
+wilderness"
+
+[node name="FarWildernessPopup" type="PopupMenu" parent="SectorMapPanel/GridContainer/FarWildernessButton2"]
+handle_input_locally = false
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[node name="FarWildernessButton3" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "far
+wilderness"
+
+[node name="FarWildernessPopup" type="PopupMenu" parent="SectorMapPanel/GridContainer/FarWildernessButton3"]
+handle_input_locally = false
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[node name="FarWildernessButton4" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "far
+wilderness"
+
+[node name="FarWildernessPopup" type="PopupMenu" parent="SectorMapPanel/GridContainer/FarWildernessButton4"]
+handle_input_locally = false
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[node name="FarWildernessButton6" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "far
+wilderness"
+
+[node name="FarWildernessPopup" type="PopupMenu" parent="SectorMapPanel/GridContainer/FarWildernessButton6"]
+handle_input_locally = false
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[node name="FarWildernessButton7" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "far
+wilderness"
+
+[node name="FarWildernessPopup" type="PopupMenu" parent="SectorMapPanel/GridContainer/FarWildernessButton7"]
+handle_input_locally = false
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[node name="CloseWildernessButton2" type="Button" parent="SectorMapPanel/GridContainer"]
 layout_mode = 2
 text = "close
 wildernesss"
 script = ExtResource("4_dkom5")
 
-[node name="CloseWildernessPopupMenu" type="PopupMenu" parent="SectorMapPanel/GridContainer/CloseWildernessButton"]
+[node name="CloseWildernessPopupMenu" type="PopupMenu" parent="SectorMapPanel/GridContainer/CloseWildernessButton2"]
+handle_input_locally = false
+position = Vector2i(600, 400)
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[node name="CloseWildernessButton3" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "close
+wildernesss"
+script = ExtResource("4_dkom5")
+
+[node name="CloseWildernessPopupMenu" type="PopupMenu" parent="SectorMapPanel/GridContainer/CloseWildernessButton3"]
 handle_input_locally = false
 size = Vector2i(277, 100)
 item_count = 1
-item_0/text = "Pathfinding: Explore Far Wilderness (2 hours)"
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[node name="CloseWildernessButton4" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "close
+wildernesss"
+script = ExtResource("4_dkom5")
+
+[node name="CloseWildernessPopupMenu" type="PopupMenu" parent="SectorMapPanel/GridContainer/CloseWildernessButton4"]
+handle_input_locally = false
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[node name="FarWildernessButton5" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "far
+wilderness"
+
+[node name="FarWildernessPopup" type="PopupMenu" parent="SectorMapPanel/GridContainer/FarWildernessButton5"]
+handle_input_locally = false
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[node name="FarWildernessButton8" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "far
+wilderness"
+
+[node name="FarWildernessPopup" type="PopupMenu" parent="SectorMapPanel/GridContainer/FarWildernessButton8"]
+handle_input_locally = false
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[node name="CloseWildernessButton5" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "close
+wildernesss"
+script = ExtResource("4_dkom5")
+
+[node name="CloseWildernessPopupMenu" type="PopupMenu" parent="SectorMapPanel/GridContainer/CloseWildernessButton5"]
+handle_input_locally = false
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
 item_0/id = 0
 
 [node name="HomeCabin" type="Button" parent="SectorMapPanel/GridContainer"]
 layout_mode = 2
 text = "abandoned
 cabin"
+script = ExtResource("5_nnpi7")
+
+[node name="HomeCabinPopup" type="PopupMenu" parent="SectorMapPanel/GridContainer/HomeCabin"]
+
+[node name="CloseWildernessButton6" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "close
+wildernesss"
+script = ExtResource("4_dkom5")
+
+[node name="CloseWildernessPopupMenu" type="PopupMenu" parent="SectorMapPanel/GridContainer/CloseWildernessButton6"]
+handle_input_locally = false
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[node name="FarWildernessButton9" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "far
+wilderness"
+
+[node name="FarWildernessPopup" type="PopupMenu" parent="SectorMapPanel/GridContainer/FarWildernessButton9"]
+handle_input_locally = false
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[node name="FarWildernessButton11" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "far
+wilderness"
+
+[node name="FarWildernessPopup" type="PopupMenu" parent="SectorMapPanel/GridContainer/FarWildernessButton11"]
+handle_input_locally = false
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[node name="CloseWildernessButton7" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "close
+wildernesss"
+script = ExtResource("4_dkom5")
+
+[node name="CloseWildernessPopupMenu" type="PopupMenu" parent="SectorMapPanel/GridContainer/CloseWildernessButton7"]
+handle_input_locally = false
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[node name="CloseWildernessButton8" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "close
+wildernesss"
+script = ExtResource("4_dkom5")
+
+[node name="CloseWildernessPopupMenu" type="PopupMenu" parent="SectorMapPanel/GridContainer/CloseWildernessButton8"]
+handle_input_locally = false
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[node name="CloseWildernessButton9" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "close
+wildernesss"
+script = ExtResource("4_dkom5")
+
+[node name="CloseWildernessPopupMenu" type="PopupMenu" parent="SectorMapPanel/GridContainer/CloseWildernessButton9"]
+handle_input_locally = false
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[node name="FarWildernessButton10" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "far
+wilderness"
+
+[node name="FarWildernessPopup" type="PopupMenu" parent="SectorMapPanel/GridContainer/FarWildernessButton10"]
+handle_input_locally = false
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[node name="FarWildernessButton12" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "far
+wilderness"
+
+[node name="FarWildernessPopup" type="PopupMenu" parent="SectorMapPanel/GridContainer/FarWildernessButton12"]
+handle_input_locally = false
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[node name="FarWildernessButton13" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "far
+wilderness"
+
+[node name="FarWildernessPopup" type="PopupMenu" parent="SectorMapPanel/GridContainer/FarWildernessButton13"]
+handle_input_locally = false
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[node name="FarWildernessButton14" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "far
+wilderness"
+
+[node name="FarWildernessPopup" type="PopupMenu" parent="SectorMapPanel/GridContainer/FarWildernessButton14"]
+handle_input_locally = false
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[node name="FarWildernessButton15" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "far
+wilderness"
+
+[node name="FarWildernessPopup" type="PopupMenu" parent="SectorMapPanel/GridContainer/FarWildernessButton15"]
+handle_input_locally = false
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[node name="FarWildernessButton16" type="Button" parent="SectorMapPanel/GridContainer"]
+layout_mode = 2
+text = "far
+wilderness"
+
+[node name="FarWildernessPopup" type="PopupMenu" parent="SectorMapPanel/GridContainer/FarWildernessButton16"]
+handle_input_locally = false
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[node name="TimeKeeper" type="Button" parent="."]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 566.0
+offset_right = 147.0
+offset_bottom = 623.0
+
+[node name="Healthbar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 209.0
+offset_right = 187.0
+offset_bottom = 236.0
+theme_override_styles/background = SubResource("StyleBoxFlat_mbogw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8tgmy")
+max_value = 10.0
+value = 5.0
+show_percentage = false
+
+[node name="HealthbarLabel" type="Label" parent="Healthbar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Health 5/10 "
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="DisplaySheet" to="." method="_on_display_sheet_pressed"]
 [connection signal="pressed" from="DisplayInventory" to="." method="_on_display_inventory_pressed"]
-[connection signal="pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton" to="SectorMapPanel/GridContainer/CloseWildernessButton" method="_on_pressed"]
-[connection signal="id_pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton/CloseWildernessPopupMenu" to="SectorMapPanel/GridContainer/CloseWildernessButton" method="_on_close_wilderness_popup_menu_id_pressed"]
+[connection signal="pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton2" to="SectorMapPanel/GridContainer/CloseWildernessButton2" method="_on_pressed"]
+[connection signal="id_pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton2/CloseWildernessPopupMenu" to="SectorMapPanel/GridContainer/CloseWildernessButton2" method="_on_close_wilderness_popup_menu_id_pressed"]
+[connection signal="pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton3" to="SectorMapPanel/GridContainer/CloseWildernessButton3" method="_on_pressed"]
+[connection signal="id_pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton3/CloseWildernessPopupMenu" to="SectorMapPanel/GridContainer/CloseWildernessButton3" method="_on_close_wilderness_popup_menu_id_pressed"]
+[connection signal="pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton4" to="SectorMapPanel/GridContainer/CloseWildernessButton4" method="_on_pressed"]
+[connection signal="id_pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton4/CloseWildernessPopupMenu" to="SectorMapPanel/GridContainer/CloseWildernessButton4" method="_on_close_wilderness_popup_menu_id_pressed"]
+[connection signal="pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton5" to="SectorMapPanel/GridContainer/CloseWildernessButton5" method="_on_pressed"]
+[connection signal="id_pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton5/CloseWildernessPopupMenu" to="SectorMapPanel/GridContainer/CloseWildernessButton5" method="_on_close_wilderness_popup_menu_id_pressed"]
+[connection signal="advance_day" from="SectorMapPanel/GridContainer/HomeCabin" to="." method="advance_day"]
+[connection signal="advance_time" from="SectorMapPanel/GridContainer/HomeCabin" to="." method="advance_time"]
+[connection signal="pressed" from="SectorMapPanel/GridContainer/HomeCabin" to="SectorMapPanel/GridContainer/HomeCabin" method="_on_pressed"]
+[connection signal="id_pressed" from="SectorMapPanel/GridContainer/HomeCabin/HomeCabinPopup" to="SectorMapPanel/GridContainer/HomeCabin" method="_on_home_cabin_popup_id_pressed"]
+[connection signal="pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton6" to="SectorMapPanel/GridContainer/CloseWildernessButton6" method="_on_pressed"]
+[connection signal="id_pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton6/CloseWildernessPopupMenu" to="SectorMapPanel/GridContainer/CloseWildernessButton6" method="_on_close_wilderness_popup_menu_id_pressed"]
+[connection signal="pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton7" to="SectorMapPanel/GridContainer/CloseWildernessButton7" method="_on_pressed"]
+[connection signal="id_pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton7/CloseWildernessPopupMenu" to="SectorMapPanel/GridContainer/CloseWildernessButton7" method="_on_close_wilderness_popup_menu_id_pressed"]
+[connection signal="pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton8" to="SectorMapPanel/GridContainer/CloseWildernessButton8" method="_on_pressed"]
+[connection signal="id_pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton8/CloseWildernessPopupMenu" to="SectorMapPanel/GridContainer/CloseWildernessButton8" method="_on_close_wilderness_popup_menu_id_pressed"]
+[connection signal="pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton9" to="SectorMapPanel/GridContainer/CloseWildernessButton9" method="_on_pressed"]
+[connection signal="id_pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton9/CloseWildernessPopupMenu" to="SectorMapPanel/GridContainer/CloseWildernessButton9" method="_on_close_wilderness_popup_menu_id_pressed"]
