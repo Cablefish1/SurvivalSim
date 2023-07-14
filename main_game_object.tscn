@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cc2dnfvxi4vg8"]
+[gd_scene load_steps=9 format=3 uid="uid://cc2dnfvxi4vg8"]
 
 [ext_resource type="Texture2D" uid="uid://beoyic83eye0v" path="res://Images/farm map.jpg" id="1_ff7vv"]
 [ext_resource type="Script" path="res://main_game_object.gd" id="1_vlqa0"]
@@ -11,6 +11,9 @@ bg_color = Color(0.921569, 0.0941176, 0.00392157, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8tgmy"]
 bg_color = Color(0.152941, 0.866667, 0.152941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgeky"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="MainGameObject" type="Control"]
 layout_mode = 3
@@ -37,8 +40,8 @@ script = ExtResource("2_flwpm")
 
 [node name="StorytellerPanel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 843.0
-offset_top = 304.0
+offset_left = 426.0
+offset_top = 497.0
 offset_right = 1141.0
 offset_bottom = 643.0
 
@@ -432,6 +435,95 @@ text = "Health 5/10 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="GameOverPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.0
+offset_top = -95.0
+offset_right = 181.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GameOverPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You have failed to survive
+
+GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SleepPopup" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -273.0
+offset_top = -156.0
+offset_right = 257.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mgeky")
+
+[node name="SleepLabel" type="RichTextLabel" parent="SleepPopup"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 19.0
+offset_top = 29.0
+offset_right = -35.0
+offset_bottom = 281.0
+grow_horizontal = 2
+text = "Negative sleep factors:
+3 Overextended work hours
+1 No camp fire
+1 Unthatched hole in the roof
+1 Rough bed
+
+Go to sleep?"
+
+[node name="GridContainer" type="GridContainer" parent="SleepPopup"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -49.0
+offset_top = -31.0
+offset_right = 49.0
+grow_horizontal = 2
+grow_vertical = 0
+columns = 3
+
+[node name="Sleep" type="Button" parent="SleepPopup/GridContainer"]
+layout_mode = 2
+text = "Sleep"
+
+[node name="Button" type="Button" parent="SleepPopup/GridContainer"]
+layout_mode = 2
+disabled = true
+button_mask = 0
+text = "          "
+
+[node name="Wait" type="Button" parent="SleepPopup/GridContainer"]
+layout_mode = 2
+text = "Wait"
+
 [connection signal="pressed" from="DisplaySheet" to="." method="_on_display_sheet_pressed"]
 [connection signal="pressed" from="DisplayInventory" to="." method="_on_display_inventory_pressed"]
 [connection signal="pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton2" to="SectorMapPanel/GridContainer/CloseWildernessButton2" method="_on_pressed"]
@@ -442,9 +534,9 @@ vertical_alignment = 1
 [connection signal="id_pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton4/CloseWildernessPopupMenu" to="SectorMapPanel/GridContainer/CloseWildernessButton4" method="_on_close_wilderness_popup_menu_id_pressed"]
 [connection signal="pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton5" to="SectorMapPanel/GridContainer/CloseWildernessButton5" method="_on_pressed"]
 [connection signal="id_pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton5/CloseWildernessPopupMenu" to="SectorMapPanel/GridContainer/CloseWildernessButton5" method="_on_close_wilderness_popup_menu_id_pressed"]
-[connection signal="advance_day" from="SectorMapPanel/GridContainer/HomeCabin" to="." method="advance_day"]
 [connection signal="advance_time" from="SectorMapPanel/GridContainer/HomeCabin" to="." method="advance_time"]
 [connection signal="pressed" from="SectorMapPanel/GridContainer/HomeCabin" to="SectorMapPanel/GridContainer/HomeCabin" method="_on_pressed"]
+[connection signal="sleep_popup" from="SectorMapPanel/GridContainer/HomeCabin" to="." method="sleep_popup"]
 [connection signal="id_pressed" from="SectorMapPanel/GridContainer/HomeCabin/HomeCabinPopup" to="SectorMapPanel/GridContainer/HomeCabin" method="_on_home_cabin_popup_id_pressed"]
 [connection signal="pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton6" to="SectorMapPanel/GridContainer/CloseWildernessButton6" method="_on_pressed"]
 [connection signal="id_pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton6/CloseWildernessPopupMenu" to="SectorMapPanel/GridContainer/CloseWildernessButton6" method="_on_close_wilderness_popup_menu_id_pressed"]
@@ -454,3 +546,5 @@ vertical_alignment = 1
 [connection signal="id_pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton8/CloseWildernessPopupMenu" to="SectorMapPanel/GridContainer/CloseWildernessButton8" method="_on_close_wilderness_popup_menu_id_pressed"]
 [connection signal="pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton9" to="SectorMapPanel/GridContainer/CloseWildernessButton9" method="_on_pressed"]
 [connection signal="id_pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton9/CloseWildernessPopupMenu" to="SectorMapPanel/GridContainer/CloseWildernessButton9" method="_on_close_wilderness_popup_menu_id_pressed"]
+[connection signal="pressed" from="SleepPopup/GridContainer/Sleep" to="." method="advance_day"]
+[connection signal="pressed" from="SleepPopup/GridContainer/Wait" to="." method="_on_sleep_wait_pressed"]
