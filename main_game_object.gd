@@ -14,6 +14,9 @@ extends Control
 @onready var sleep_label = $SleepPopup/SleepLabel
 
 
+#GAME CONFIG:
+@export var tutorial : bool = true
+
 
 @export var hour = 0
 @export var day = 0
@@ -22,9 +25,17 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	display_text("Game initiated")
+	display_text("A new day dawns")
 	time_keeper.set_text("Day: "+var_to_str(day)+"\nHour: "+var_to_str(hour))
 	update_health_bar()
+	if tutorial:
+		display_text("HINTS:")
+		display_text("- In order to survive you need food and sleep.")
+		display_text("- Don't work more than 8 hours or risk fatigue")
+		display_text("- Remember to cut wood and build a fire")
+		display_text("- Unless at full health everything will be harder")
+
+
 
 func advance_time(hours):
 	hour = hour + hours

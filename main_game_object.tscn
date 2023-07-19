@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cc2dnfvxi4vg8"]
+[gd_scene load_steps=10 format=3 uid="uid://cc2dnfvxi4vg8"]
 
 [ext_resource type="Texture2D" uid="uid://beoyic83eye0v" path="res://Images/farm map.jpg" id="1_ff7vv"]
 [ext_resource type="Script" path="res://main_game_object.gd" id="1_vlqa0"]
 [ext_resource type="Script" path="res://PlayerData.gd" id="2_flwpm"]
 [ext_resource type="Script" path="res://close_wilderness.gd" id="4_dkom5"]
 [ext_resource type="Script" path="res://HomeCabin.gd" id="5_nnpi7"]
+[ext_resource type="Script" path="res://event_panel.gd" id="6_28thn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbogw"]
 bg_color = Color(0.921569, 0.0941176, 0.00392157, 1)
@@ -409,6 +410,7 @@ offset_left = 43.0
 offset_top = 566.0
 offset_right = 147.0
 offset_bottom = 623.0
+tooltip_text = "Don't work for more than 8 hours or risk loss of health due to fatigue."
 
 [node name="Healthbar" type="ProgressBar" parent="."]
 layout_mode = 0
@@ -524,6 +526,59 @@ text = "          "
 layout_mode = 2
 text = "Wait"
 
+[node name="EventPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -273.0
+offset_top = -156.0
+offset_right = 257.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mgeky")
+script = ExtResource("6_28thn")
+
+[node name="EventLabel" type="RichTextLabel" parent="EventPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.0
+offset_top = -130.0
+offset_right = 255.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "All your life you've been living in a small village in Eylenda. A week ago everything changed. 
+
+The rumbling mountain to the north started spewing fire and smoke. After the fire came the grey snow poisoning the crops and killing the livestock. Finally came the black fog cursing everyone in it with the killing cough.
+
+The village was doomed. Everyone knew it. With nothing but the clothes on you back you ran. Getting seperated from your fellow villagers you ventured further into the wilderness than ever before. After several days of rough travel you finally escape from the black fog and ominous rumblings. However you are starved, exhausted and cold.
+
+The last hours of daylight reveal what appears to be an abandoned cabin. It has a hole in the roof and no real bed but you are too exhausted to care, you collapse on a pile of straw.
+
+You awake with the first light next day. It's time to explore the sorroundings, find some food and figure out how to survive."
+
+[node name="OKButton" type="Button" parent="EventPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -31.0
+offset_right = 25.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Ok"
+
 [connection signal="pressed" from="DisplaySheet" to="." method="_on_display_sheet_pressed"]
 [connection signal="pressed" from="DisplayInventory" to="." method="_on_display_inventory_pressed"]
 [connection signal="pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton2" to="SectorMapPanel/GridContainer/CloseWildernessButton2" method="_on_pressed"]
@@ -548,3 +603,4 @@ text = "Wait"
 [connection signal="id_pressed" from="SectorMapPanel/GridContainer/CloseWildernessButton9/CloseWildernessPopupMenu" to="SectorMapPanel/GridContainer/CloseWildernessButton9" method="_on_close_wilderness_popup_menu_id_pressed"]
 [connection signal="pressed" from="SleepPopup/GridContainer/Sleep" to="." method="advance_day"]
 [connection signal="pressed" from="SleepPopup/GridContainer/Wait" to="." method="_on_sleep_wait_pressed"]
+[connection signal="pressed" from="EventPanel/OKButton" to="EventPanel" method="_on_ok_button_pressed"]
