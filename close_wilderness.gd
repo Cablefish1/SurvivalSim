@@ -22,6 +22,8 @@ func _ready():
 
 func _on_pressed():
 	popup.show()
+	popup.position.y = get_global_mouse_position().y
+	popup.position.x = get_global_mouse_position().x
 
 func explore():
 	if (explored == true): #should be redundant but nice debug to have
@@ -115,4 +117,3 @@ func _on_close_wilderness_popup_menu_id_pressed(id):
 			else:
 				storyteller.add_text("You fail to find any edible berries")
 				storyteller.newline()
-

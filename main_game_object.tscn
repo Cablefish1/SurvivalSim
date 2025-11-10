@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://cc2dnfvxi4vg8"]
 
 [ext_resource type="Texture2D" uid="uid://beoyic83eye0v" path="res://Images/farm map.jpg" id="1_ff7vv"]
-[ext_resource type="Script" path="res://main_game_object.gd" id="1_vlqa0"]
-[ext_resource type="Script" path="res://PlayerData.gd" id="2_flwpm"]
-[ext_resource type="Script" path="res://close_wilderness.gd" id="4_dkom5"]
-[ext_resource type="Script" path="res://HomeCabin.gd" id="5_nnpi7"]
-[ext_resource type="Script" path="res://event_panel.gd" id="6_28thn"]
+[ext_resource type="Script" uid="uid://cb0dpjmcexbra" path="res://main_game_object.gd" id="1_vlqa0"]
+[ext_resource type="Script" uid="uid://dfvud28b8m61b" path="res://PlayerData.gd" id="2_flwpm"]
+[ext_resource type="Script" uid="uid://eg3cxrernh4o" path="res://close_wilderness.gd" id="4_dkom5"]
+[ext_resource type="Script" uid="uid://carsnmvedfseh" path="res://HomeCabin.gd" id="5_nnpi7"]
+[ext_resource type="Script" uid="uid://bae04ugd81yhm" path="res://event_panel.gd" id="6_28thn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbogw"]
 bg_color = Color(0.921569, 0.0941176, 0.00392157, 1)
