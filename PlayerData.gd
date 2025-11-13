@@ -126,4 +126,3 @@ func skill_roll(skill_name, target_dc):
 			
 		
 	print("nonexisting skill")
-

@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://s70kqlueuly"]
+
+[ext_resource type="Script" uid="uid://cstjfpusyjaca" path="res://UI Scripts/storyteller.gd" id="1_bqa5x"]
+
+[node name="StorytellerPanel" type="Panel"]
+offset_left = 873.0
+offset_top = 5.0
+offset_right = 1139.0
+offset_bottom = 347.0
+
+[node name="Storyteller" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scroll_following = true
+script = ExtResource("1_bqa5x")
+metadata/_edit_lock_ = true

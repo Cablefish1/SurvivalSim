@@ -1,0 +1,50 @@
+{
+	"categories": [
+		{
+			"uuid": "925077c4-7791-4761-8943-76c30cd6a007",
+			"title": "Task",
+			"color": "70bafa"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "2ae16b17-3cf2-4fde-aae2-6b35f40f6f03",
+			"title": "Todo",
+			"tasks": [
+				"dc6c80f1-6a5f-4fc7-863e-8e0e5735f22b"
+			]
+		},
+		{
+			"uuid": "c3daa09c-0e5d-4106-96d7-6f9565b5b36f",
+			"title": "Doing",
+			"tasks": []
+		},
+		{
+			"uuid": "0952b989-0197-4185-bd1e-ed5949baed06",
+			"title": "Done",
+			"tasks": []
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "dc6c80f1-6a5f-4fc7-863e-8e0e5735f22b",
+			"title": "Make HomeCabin an instantiated scene!",
+			"description": "",
+			"category": "925077c4-7791-4761-8943-76c30cd6a007",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"2ae16b17-3cf2-4fde-aae2-6b35f40f6f03"
+			],
+			[
+				"c3daa09c-0e5d-4106-96d7-6f9565b5b36f"
+			],
+			[
+				"0952b989-0197-4185-bd1e-ed5949baed06"
+			]
+		]
+	}
+}

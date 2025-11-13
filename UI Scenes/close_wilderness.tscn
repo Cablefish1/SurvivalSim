@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu67a2pehhc7c"]
+
+[ext_resource type="Script" uid="uid://eg3cxrernh4o" path="res://UI Scripts/close_wilderness.gd" id="1_jl8jc"]
+
+[node name="CloseWildernessButton2" type="Button"]
+text = "close
+wildernesss"
+script = ExtResource("1_jl8jc")
+
+[node name="CloseWildernessPopupMenu" type="PopupMenu" parent="."]
+handle_input_locally = false
+position = Vector2i(600, 400)
+size = Vector2i(277, 100)
+item_count = 1
+item_0/text = "Pathfinding: Explore Far Wilderness (1 hour)"
+item_0/id = 0
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="id_pressed" from="CloseWildernessPopupMenu" to="." method="_on_close_wilderness_popup_menu_id_pressed"]

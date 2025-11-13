@@ -18,15 +18,13 @@ extends Control
 @export var tutorial : bool = true
 
 
-@export var hour = 0
-@export var day = 0
+
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	display_text("A new day dawns")
-	time_keeper.set_text("Day: "+var_to_str(day)+"\nHour: "+var_to_str(hour))
 	update_health_bar()
 	if tutorial:
 		display_text("HINTS:")
@@ -37,21 +35,7 @@ func _ready():
 
 
 
-func advance_time(hours):
-	hour = hour + hours
-	time_keeper.set_text("Day: "+var_to_str(day)+"\nHour: "+var_to_str(hour))
-	if(hour == 8):
-		display_text("You've reached the maximum productive hours today.")
-		display_text("You should go to bed or risk fatigue.")
-	elif(hour >= 9 && hour <= 10):
-		display_text("You're very tired!")
-		display_text("You should consider going to bed or risk fatigue.")
-	elif(hour >= 11):
-		display_text("You are too tired to keep working.")
-		display_text("You barely manege to stumble into bed before passing out!")
-		hour = 0
-		day = day + 1
-		advance_day()
+
 		
 
 
@@ -59,7 +43,7 @@ func sleep_popup():
 	$SleepPopup.show()
 	sleep_label.clear()
 	#calculate popup vars
-	var fatigue = hour - 8 #Translate overextended work to fatigue
+	var fatigue = time_keeper.hour - 8 #Translate overextended work to fatigue
 	if(fatigue < 0): fatigue = 0 #Fatigue can't be negative
 	var negative_sleep_factors = fatigue
 	
@@ -100,50 +84,6 @@ func sleep_popup():
 	
 
 
-func advance_day():
-	$SleepPopup.hide()
-	var fatigue = hour - 8 #Translate overextended work to fatigue
-	
-	#reset hours and set a new day
-	hour = 0
-	day = day + 1
-	time_keeper.set_text("Day: "+var_to_str(day)+"\nHour: "+var_to_str(hour))
-	
-	#PLAYER STUFF HAPPENS
-	#Should probably go to a function in the PlayerObject
-	var negative_sleep_factors : int = 0
-	if(fatigue < 0): fatigue = 0 #Fatigue can't be positive. We want the player to expend all 8 hours
-	negative_sleep_factors = fatigue #translate overextended work hours to fatigue
-	
-	if(home_cabin.roof_thatched == false):
-		negative_sleep_factors = negative_sleep_factors + 1
-	
-	if(home_cabin.fire_built == false):
-		negative_sleep_factors = negative_sleep_factors + 1
-	
-	if(home_cabin.bed_fixed == false):
-		negative_sleep_factors = negative_sleep_factors + 1
-	
-	var sleep_roll = dicebag.roll_dice(1, 6, - negative_sleep_factors)
-		
-	if(sleep_roll < 0):
-		display_text("The quality of your sleep was unable to counter the negative sleep factors.")
-		display_text("You take damage from lack of decent rest.")
-		player.modify_health(sleep_roll)
-		
-	else:
-		if(player.health < 10 && player.food_eaten_today == true):
-			display_text("You slept well regaining some much needed health!")
-			player.modify_health(2)
-		if(player.starvation > 0):
-			display_text("No amount of sleep can heal when you're starving")
-		if(player.health >= 10):
-			display_text("You slept well")
-		
-	#WORLD STUFF HAPPENS
-	home_cabin.fire_built = false
-	player.food_eaten_today = false
-	#respawning ressources should go here
 		
 		
 		

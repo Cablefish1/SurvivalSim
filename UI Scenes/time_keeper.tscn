@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6wryr86633l8"]
+
+[ext_resource type="Script" uid="uid://bkvrn8ih2j2ia" path="res://UI Scripts/time_keeper.gd" id="1_je2li"]
+
+[node name="TimeKeeper" type="Button"]
+offset_left = 43.0
+offset_top = 566.0
+offset_right = 147.0
+offset_bottom = 623.0
+tooltip_text = "Don't work for more than 8 hours or risk loss of health due to fatigue."
+script = ExtResource("1_je2li")
