@@ -327,6 +327,10 @@ item_0/id = 0
 
 [node name="TimeKeeper" parent="." instance=ExtResource("6_aky75")]
 layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 104.0
+offset_bottom = 57.0
 
 [node name="Healthbar" type="ProgressBar" parent="."]
 layout_mode = 0

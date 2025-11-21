@@ -92,23 +92,27 @@ func _on_close_wilderness_popup_menu_id_pressed(_id):
 
 	else:
 		#another if/then nightmare
-		main_game_object.advance_time(1) #Whether succesfull or not advance time 1 hour.
-		if(resource_type == "fish" && resource_count >= 1):
-			if(player.skill_roll("Fishing", 12) == true):
-				food_gain()
-			else:
-				emit_to_storyteller("You fail to catch any fish")
+		time_keeper.advance_time(1) #Whether succesfull or not advance time 1 hour.
+		match(resource_type):
+			"fish":
+				if resource_count >= 1:
+					if(player.skill_roll("Fishing", 12) == true):
+						food_gain()
+					else:
+						emit_to_storyteller("You fail to catch any fish")
 
 		
-		if(resource_type == "game" && resource_count >= 1):
-			if(player.skill_roll("Hunting", 12) == true):
-				food_gain()
-			else:
-				emit_to_storyteller("You fail to kill any game")
+			"game":
+				if resource_count >= 1:
+					if(player.skill_roll("Hunting", 12) == true):
+						food_gain()
+					else:
+						emit_to_storyteller("You fail to kill any game")
 
 		
-		if(resource_type == "berries" && resource_count >= 1):
-			if(player.skill_roll("Foraging", 12) == true):
-				food_gain()
-			else:
-				emit_to_storyteller("You fail to find any edible berries")
+			"berries":
+				if resource_count >= 1:
+					if(player.skill_roll("Foraging", 12) == true):
+						food_gain()
+					else:
+						emit_to_storyteller("You fail to find any edible berries")
