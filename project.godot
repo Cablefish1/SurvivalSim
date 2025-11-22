@@ -15,6 +15,10 @@ run/main_scene="res://main_game_object.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Storyteller="*res://UI Scenes/storyteller.tscn"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/kanban_tasks/plugin.cfg")

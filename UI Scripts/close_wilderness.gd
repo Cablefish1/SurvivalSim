@@ -71,7 +71,6 @@ func populate_popup(): #populates the popup menu once resources are found
 
 func food_gain():
 	emit_to_storyteller("You gain food enough for a day")
-
 	player.inventory["Unpreserved food"] = player.inventory["Unpreserved food"] + 1
 	resource_count = resource_count - 1
 	set_text(var_to_str(resource_count)+"\n"+str(resource_type))

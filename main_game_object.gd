@@ -24,6 +24,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Storyteller.tell_player("THE GLOBAL SCENE WORKS!")
+
 	display_text("A new day dawns")
 	update_health_bar()
 	if tutorial:

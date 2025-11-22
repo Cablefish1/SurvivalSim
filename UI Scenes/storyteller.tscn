@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://3liv1bfbt5p2"]
+
+[ext_resource type="Script" uid="uid://cstjfpusyjaca" path="res://UI Scripts/storyteller.gd" id="1_hvru5"]
+
+[node name="Storyteller" type="RichTextLabel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scroll_following = true
+script = ExtResource("1_hvru5")
+metadata/_edit_lock_ = true
